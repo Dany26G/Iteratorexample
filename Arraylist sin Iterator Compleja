@@ -2,53 +2,19 @@ import java.util.ArrayList;
 
 public class Main {
 
-    // Función que devuelve los números mayores que 10 y menores que 50,
-    // que también sean impares y múltiplos de 3, pero sin repetir
-    public static void mostrarConCondicionesCompletas(ArrayList<Integer> lista) {
-        ArrayList<Integer> yaMostrados = new ArrayList<>(); // Para asegurarnos que no se repiten los valores
-
-        // Usamos un bucle for clásico para recorrer la lista
+    // Función con bucles anidados para recorrer la lista
+    public static void recorrerConBucleAnidado(ArrayList<Integer> lista) {
+        // Usamos un bucle anidado para recorrer la lista
         for (int i = 0; i < lista.size(); i++) {
-            Integer numero = lista.get(i);
-
-            // Condición compleja: número mayor que 10, menor que 50, impar y múltiplo de 3
-            if (numero > 10 && numero < 50 && numero % 2 != 0 && numero % 3 == 0) {
-                // Verificamos que el número no se haya mostrado antes
-                if (!yaMostrados.contains(numero)) {
-                    System.out.println(numero);
-                    yaMostrados.add(numero);  // Añadimos el número para que no se repita
-                }
-            }
-        }
-    }
-
-    // Función que devuelve los números menores de 30 y que son múltiplos de 5, excluyendo los negativos
-    public static void mostrarMultiplesDe5MenoresQue30(ArrayList<Integer> lista) {
-        for (int i = 0; i < lista.size(); i++) {
-            Integer numero = lista.get(i);
-
-            // Condición compleja: múltiplos de 5 y menores que 30, sin incluir negativos
-            if (numero < 30 && numero % 5 == 0 && numero >= 0) {
-                System.out.println(numero);
-            }
-        }
-    }
-
-    // Función que devuelve los números que son mayores a 50, y múltiplos de 7, pero solo los primeros 5
-    public static void mostrarPrimeros5MultiploDe7MayorQue50(ArrayList<Integer> lista) {
-        int contador = 0;
-        for (int i = 0; i < lista.size(); i++) {
-            Integer numero = lista.get(i);
-
-            // Condición compleja: número mayor que 50 y múltiplo de 7
-            if (numero > 50 && numero % 7 == 0) {
-                System.out.println(numero);
-                contador++;
-
-                // Rompemos cuando hayamos mostrado 5 elementos
-                if (contador == 5) {
-                    break;
-                }
+            Integer num1 = lista.get(i);
+            for (int j = 0; j < lista.size(); j++) {
+                Integer num2 = lista.get(j);
+                
+                // Realizamos una acción con los números (en este caso, los multiplicamos)
+                int resultado = num1 * num2;
+                
+                // Imprimir el resultado de la multiplicación entre los dos números
+                System.out.println("Multiplicando " + num1 + " * " + num2 + " = " + resultado);
             }
         }
     }
@@ -56,27 +22,13 @@ public class Main {
     public static void main(String[] args) {
         // Crear un ArrayList con algunos valores
         ArrayList<Integer> numeros = new ArrayList<>();
-        numeros.add(3);    // Impresionará porque es impar, múltiplo de 3, y mayor que 10
-        numeros.add(10);
-        numeros.add(12);   // Múltiplo de 3 pero no impar
-        numeros.add(15);   // Múltiplo de 3, pero está repetido
-        numeros.add(18);   // Múltiplo de 3
-        numeros.add(30);   // Múltiplo de 5, pero mayor que 30
-        numeros.add(25);   // Múltiplo de 5 y menor que 30
-        numeros.add(52);   // Mayor que 50 y múltiplo de 7
-        numeros.add(56);   // Múltiplo de 7 y mayor que 50
-        numeros.add(70);   // Múltiplo de 7 y mayor que 50
-        numeros.add(80);   // Múltiplo de 5 pero mayor que 30
-        numeros.add(100);  // Múltiplo de 5 pero mayor que 30
+        numeros.add(1);
+        numeros.add(2);
+        numeros.add(3);
+        numeros.add(4);
 
-        // Llamadas a las funciones con condiciones complejas
-        System.out.println("Números que son mayores que 10, menores que 50, impares y múltiplos de 3:");
-        mostrarConCondicionesCompletas(numeros);
-
-        System.out.println("\nNúmeros menores de 30 y múltiplos de 5 (excluyendo negativos):");
-        mostrarMultiplesDe5MenoresQue30(numeros);
-
-        System.out.println("\nPrimeros 5 números mayores que 50 y múltiplos de 7:");
-        mostrarPrimeros5MultiploDe7MayorQue50(numeros);
+        // Llamamos a la función que utiliza bucles anidados
+        System.out.println("Usando bucles anidados:");
+        recorrerConBucleAnidado(numeros);
     }
 }
