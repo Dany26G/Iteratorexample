@@ -1,0 +1,42 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class Main {
+
+    // Función con Iterator para recorrer la lista sin bucles anidados
+    public static void recorrerConIterator(ArrayList<Integer> lista) {
+        // Creamos un Iterator para recorrer la lista
+        Iterator<Integer> iterador1 = lista.iterator();
+        
+        // Usamos un bucle while para recorrer con el Iterator
+        while (iterador1.hasNext()) {
+            Integer num1 = iterador1.next();
+            
+            // Creamos un segundo Iterator para recorrer nuevamente la lista
+            Iterator<Integer> iterador2 = lista.iterator();
+            
+            while (iterador2.hasNext()) {
+                Integer num2 = iterador2.next();
+                
+                // Realizamos una acción con los números (en este caso, los multiplicamos)
+                int resultado = num1 * num2;
+                
+                // Imprimir el resultado de la multiplicación entre los dos números
+                System.out.println("Multiplicando " + num1 + " * " + num2 + " = " + resultado);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        // Crear un ArrayList con algunos valores
+        ArrayList<Integer> numeros = new ArrayList<>();
+        numeros.add(1);
+        numeros.add(2);
+        numeros.add(3);
+        numeros.add(4);
+
+        // Llamamos a la función que utiliza Iterator
+        System.out.println("Usando Iterator:");
+        recorrerConIterator(numeros);
+    }
+}
