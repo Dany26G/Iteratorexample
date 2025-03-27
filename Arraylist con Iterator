@@ -1,0 +1,28 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class Main {
+
+    // Función que devuelve todos los valores usando Iterator
+    public static void mostrarConIterator(ArrayList<Integer> lista) {
+        Iterator<Integer> iterador = lista.iterator();  // Obtenemos el iterator de la lista
+
+        while (iterador.hasNext()) {  // Comprobamos si hay más elementos
+            System.out.println(iterador.next());  // Mostramos el siguiente elemento
+        }
+    }
+
+    public static void main(String[] args) {
+        // Creamos un ArrayList con algunos valores
+        ArrayList<Integer> numeros = new ArrayList<>();
+        numeros.add(1);
+        numeros.add(2);
+        numeros.add(3);
+        numeros.add(4);
+        numeros.add(5);
+
+        // Llamada a la función que usa Iterator para recorrer la lista
+        System.out.println("Recorriendo con Iterator:");
+        mostrarConIterator(numeros);
+    }
+}
